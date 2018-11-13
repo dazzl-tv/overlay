@@ -1,0 +1,52 @@
+<!Doctype HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>fixed layout</title>
+    <style>
+      /* This is a comment it is not read by any browser
+         This is where the css styling goes */
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: rgba(0,0,0,0);
+        width:1280px;
+        height:720px;
+      }
+
+      #container{
+        width:100%;
+        height:100%;
+      }
+    </style>
+    <script>
+      function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('clock').innerHTML =
+          h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+      }
+      function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+      }
+    </script> 
+  </head>
+  <body onload="startTime()">
+    <div id="container" style="position: relative">
+      <div style="position: absolute; top: 20px; left: 20px; width: 100px">
+        <img src="logo.png" style="width: 100%"/>
+      </div>
+      <div style="position: absolute; bottom: 0px; left: 0px; width: 100%; height: 30px; color: white; background-color: #ff1f54; display: table">
+        <p id="clock" style="text-align:center; vertical-align: middle; display: table-cell"></p>
+      </div>
+    </div>
+  </body>
+</html>
