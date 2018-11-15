@@ -1,0 +1,6 @@
+# backup files
+*~
+*.swp
+
+# MacOS
+.DS_Store
